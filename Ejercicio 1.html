@@ -1,21 +1,10 @@
 <canvas id='tablero'  width=500 height=450> </canvas>
 <script>
-  function retangulo(cd, colorBorde, colorRelleno, grosor) {
-     ctx.beginPath();
-     ctx.strokeStyle = colorBorde;
-     ctx.fillStyle= colorRelleno;
-     ctx.linewidth = grosor;
-     ctx.moveTo(cd[0],cd[1]);
-     ctx.lineTo(cd[2],cd[3]);
-     ctx.lineTo(cd[4],cd[5]);
-     ctx.closePath();
-     ctx.stroke();
-     ctx.fill();
-  }
-  function poligono(cd,colorBorde, colorRelleno){
+  function poligono(cd,colorBorde, colorRelleno, grosor){
      ctx.beginPath()
      ctx.strokeStyle = colorBorde;
      ctx.fillStyle= colorRelleno;
+     ctx.linewidth = grosor;
      ctx.moveTo(cd[0],cd[1]);
      for(i=2; i < a.lenth; i+=2)
        ctx.lineTo(a[i],a[i+1]);
@@ -23,6 +12,7 @@
      ctx.stroke();
      ctx.fill();
   }
+  
   function recorte(arr){
       ctx.beginPath();
       ctx.moveTo(arr[0],arr[1]);
@@ -31,10 +21,21 @@
       ctx.clip();
  }
   var c = document.getElementById('tablero')
-  var ctx = c.getContext('2d') 
- 
- var [azul, rosado, amarillo] = ['rgba(68,114,196)', 'rgba(248,203,173)', 'rgba(255,255,0)'];
-  var ;
+    if (c && c.getContext) {
+   var ctx = c.getContext('2d') 
+    if (ctx) {
+	var X = canvas.width/2;
+	var Y = canvas.height/2;
+	var r = 75;
+	ctx.strokeStyle = "Black";
+	ctx.fillStyle = "rgba(237,28,36)";
+	ctx.lineWidth = 2;
+	ctx.arc(684,643,260,0,2*Math.PI);
+	ctx.fill();
+	ctx.stroke();            
+	}
+    }
+
 
  
 </script>
