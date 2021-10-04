@@ -1,41 +1,35 @@
 <canvas id='tablero'  width=500 height=450> </canvas>
+
 <script>
-  function poligono(cd,colorBorde, colorRelleno, grosor){
+function polygon(x1, y1, x2, y2, x3, y3, colorBorde, colorRelleno){
      ctx.beginPath()
      ctx.strokeStyle = colorBorde;
      ctx.fillStyle= colorRelleno;
-     ctx.linewidth = grosor;
-     ctx.moveTo(cd[0],cd[1]);
-     for(i=2; i < a.lenth; i+=2)
-       ctx.lineTo(a[i],a[i+1]);
+     ctx.moveTo(x1,y1);
+     ctx.lineTo(x2,y2);
+     ctx.lineTo(x3,y3);
      ctx.closePath();
      ctx.stroke();
      ctx.fill();
   }
+  var canvas = document.getElementById('canvas')
+  var ctx = canvas.getContext('2d');
   
-  function recorte(arr){
-      ctx.beginPath();
-      ctx.moveTo(arr[0],arr[1]);
-      for(var i = 2; i < arr.length; i+=2)
-         ctx.lineTo(arr[i], arr[i+1]); 
-      ctx.clip();
- }
-  var c = document.getElementById('tablero')
-    if (c && c.getContext) {
-   var ctx = c.getContext('2d') 
-    if (ctx) {
-	var X = canvas.width/2;
-	var Y = canvas.height/2;
-	var r = 75;
-	ctx.strokeStyle = "Black";
-	ctx.fillStyle = "rgba(237,28,36)";
-	ctx.lineWidth = 2;
-	ctx.arc(684,643,260,0,2*Math.PI);
-	ctx.fill();
-	ctx.stroke();            
-	}
-    }
+  ctx.strokeStyle = '#00FF00';
+  ctx.strokeRect(0,0,canvas.width, canvas.height);
+  
+  polygon([346,5,540,144,468,370,224,368,151,144],'rgba(0,162,232)', 'rgba(0,162,232)');
+  polygon([304,69,428,160,381,305,229,305,182,157], 'white', 'white');
+  polygon([346,5,540,144,468,370,224,368,151,144],'rgba(181,230,29)', 'rgba(181,230,29)');
 
-
- 
 </script>
+
+
+
+
+
+
+
+
+
+
